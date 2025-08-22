@@ -13,3 +13,7 @@ class GetUser(AddUser):
 class AddLetter(BaseModel):
     letter: str
 
+
+class Admin(BaseModel):
+    username: str
+    password: str

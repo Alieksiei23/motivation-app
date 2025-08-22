@@ -9,6 +9,7 @@ class Users(Base):
     __tablename__ = 'users'
 
     username = Column(String)
+    password = Column(String)
     email = Column(String)
     date_start = Column(DateTime)
 

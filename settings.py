@@ -19,4 +19,3 @@ class Settings(BaseSettings):
 
 
 setting = Settings()
-print(setting.sync_url_db)

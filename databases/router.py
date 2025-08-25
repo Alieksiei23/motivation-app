@@ -2,7 +2,7 @@ from sqlalchemy import select
 from fastapi import APIRouter, HTTPException
 from datetime import datetime
 
-from core import SessionDep, engine
+from settings import SessionDep, engine
 from databases.models import AddUser, Admin
 from databases.scheme import Base, Users, Letters
 

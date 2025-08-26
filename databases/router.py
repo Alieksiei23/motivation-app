@@ -3,7 +3,7 @@ from fastapi import APIRouter, HTTPException
 from datetime import datetime
 
 from settings import SessionDep, engine
-from databases.models import AddUser, Admin
+from databases.models import AddUser, Admin, AddLetter
 from databases.scheme import Base, Users, Letters
 
 
@@ -47,3 +47,15 @@ async def get_all_letters(session: SessionDep):
     query = select(Letters)
     result = await session.execute(query)
     return result.scalars().all()
+
+
+@router.post('/addletter/')
+async def add_letters(message: AddLetter, sesion: SessionDep):
+    new_letter = Letters(
+        letter=message.letter
+    )
+    sesion.add(new_letter)
+    await sesion.commit()
+    return {
+        "message": "success"
+    }
